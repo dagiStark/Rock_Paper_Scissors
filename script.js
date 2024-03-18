@@ -1,5 +1,5 @@
 
-function getComputerChoise(){
+function getComputerChoice(){
     let index = Math.floor(Math.random() * 3);
     if (index == 0) return "Rock";
     if(index == 1) return "Paper";
@@ -14,27 +14,63 @@ function match(playerSelection = "", computerSelection=""){
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
 
-    // if((player != "rock") || (player != "paper") ||( player != "scissor")) return "please select: Rock, Paper or Scissor";
 
     if(player == "scissor"){
-        if (computer == "rock") return "You Lose!, Rock beats Scissor.";
-        else if(computer == "sissor") return "Draw."; 
-        else return "You win!, Scissor beats Paper";
+        if (computer == "rock") return "Rock beats Scissor.";
+        else if(computer == "scissor"){
+            draw++; 
+            return "Draw."; }
+        else{
+            point++;
+            return "Scissor beats Paper." ;
+        }
     } 
 
     if(player == "rock"){
-        if (computer == "paper") return "You Lose!, Paper beats Rock.";
-        else if(computer == "rock") return "Draw."; 
-        else return "You win!, Rock beats Scissor";
+        if (computer == "paper") return "Paper beats Rock.";
+        else if(computer == "rock"){
+            draw++ ;
+            return "Draw.";} 
+        else{
+            point++;
+            return "Rock beats Scissor." ;
+        }
     } 
 
     if(player == "paper"){
-        if (computer == "scissor") return "You Lose!, Scissor beats Paper.";
-        else if(computer == "paper") return "Draw."; 
-        else return "You win!, Paper beats Rock";
+        if (computer == "scissor") return "Scissor beats Paper.";
+        else if(computer == "paper"){
+            draw++;
+            return "Draw."; }
+        else{
+            point++;
+            return "Paper beats Rock" ;
+        }
     } 
 
     return
 }
 
- 
+const prompt = require("prompt-sync")();
+let point = 0;
+let draw = 0;
+
+function playGame(){
+    for (let i = 1; i < 6; i++){
+        let user = prompt("Enter you choice: ");
+        let result = `Round: ${i}, ${match(user, getComputerChoice())}`;
+        console.log(result);
+    }
+    if(point >= 3) console.log( `Congratulations, You win for ${point}\\5`);
+    else if(draw == 1){
+        if(point != 2) console.log( `You Loser, your'e down for ${point}\\5`);
+        else console.log("Win Win!")
+    }
+
+}
+
+
+
+
+
+playGame()
