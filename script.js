@@ -1,18 +1,15 @@
 
 function getComputerChoice(){
     let index = Math.floor(Math.random() * 3);
-    if (index == 0) return "Rock";
-    if(index == 1) return "Paper";
-    if(index == 2) return "Scissor";
+    if (index == 0) return "rock";
+    if(index == 1) return "paper";
+    if(index == 2) return "scissor";
     return
 };
 
 
 
-function match(playerSelection = "", computerSelection=""){
-
-    let player = playerSelection.toLowerCase();
-    let computer = computerSelection.toLowerCase();
+function match(player = "", computer = getComputerChoice()){
 
 
     if(player == "scissor"){
@@ -51,26 +48,44 @@ function match(playerSelection = "", computerSelection=""){
     return
 }
 
-const prompt = require("prompt-sync")();
+// const prompt = require("prompt-sync")();
 let point = 0;
 let draw = 0;
 
-function playGame(){
-    for (let i = 1; i < 6; i++){
-        let user = prompt("Enter you choice: ");
-        let result = `Round: ${i}, ${match(user, getComputerChoice())}`;
-        console.log(result);
+// function playGame(){
+//     for (let i = 1; i < 6; i++){
+//         let user = prompt("Enter you choice: ");
+//         let result = `Round: ${i}, ${match(user, getComputerChoice())}`;
+//         console.log(result);
+//     }
+//     if(point >= 3) console.log( `Congratulations, You win for ${point}\\5`);
+//     else if(draw == 1){
+//         if(point != 2) console.log( `You Loser, your'e down for ${point}\\5`);
+//         else console.log("Win Win!")
+//     }
+
+// };
+
+
+
+// Everything down here
+
+const user = document.querySelector('.user');
+const para = document.querySelector('p');
+
+
+user.addEventListener('click', playRound , false);
+
+let round = 1;
+function playRound(event){
+
+    if (event.target !== event.currentTarget){
+        const clickedItem = event.target.id;
+        para.textContent = `Round ${round}: ` + match(clickedItem);
+        round++;
     }
-    if(point >= 3) console.log( `Congratulations, You win for ${point}\\5`);
-    else if(draw == 1){
-        if(point != 2) console.log( `You Loser, your'e down for ${point}\\5`);
-        else console.log("Win Win!")
-    }
-
-}
+};
 
 
 
 
-
-playGame()
