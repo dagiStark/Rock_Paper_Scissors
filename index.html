@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <h1>Play Rock-Paper-Scissors for 5 rounds.</h1>
 
     <div class="user">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissor">Scissor</button>
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissor">Scissor</button>
     </div>
-        
+
     <p></p>
 
+    <section class="modal hidden">
+      <div class="modal-header">
+        <img
+          src="rock-paper-scissors.png"
+          alt="rock-paper-scissors icon."
+          width="30px"
+          height="30px"
+        />
+        <button class="btn-close">&times;</button>
+      </div>
 
-    
-</body>
+      <div class="modal-body">
+        <h3>Congratulations!</h3>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima
+          voluptas placeat ipsam perferendis autem esse libero in quasi, ea ab
+          error. Temporibus nobis porro eveniet, aspernatur minima earum ex
+          sequi.
+        </p>
+      </div>
+
+      <input type="email" id="email" placeholder="example@gmail.com" />
+      <button class="btn">Submit</button>
+    </section>
+
+    <div class="overlay hidden"></div>
+    <button class="btn btn-open">Open medal</button>
+  </body>
 </html>
