@@ -116,7 +116,8 @@ button{
     display: flex;
     flex-direction: column;
     /* align-items: center; */
-    background-color: #1F2833;
+    background-color: #16233B;
+
 }
 
 h1{
@@ -125,9 +126,13 @@ h1{
 }
 .navigation-menu{
     display: flex;
-    gap: 10rem;
+    gap: 1rem;
     margin: 3rem;
     color: white;
+    border: white;
+    border-style: solid;
+    padding: 1rem;
+    border-radius: 5px;
    
 }
 
@@ -135,12 +140,18 @@ h1{
 #home{
     margin-left: 0;
     margin-right: auto;
+    border: white;
+
 }
 
 .game-body{
     display: flex;
     align-items: center;
-    margin: 3rem;
+    margin-top: 3rem;
+    /* background-image: url('view-neon-illuminated-gaming-desk-setup-with-keyboard.jpg');
+    /* background-attachment: fixed; */
+    background-size: cover; 
+    margin-bottom: 3rem;
 }
 
 #game-list{
@@ -150,5 +161,36 @@ h1{
     flex-direction: column;
     gap: 1.5rem;
     color: white;
+    margin-left: 3rem;
 }
 
+
+.info-center{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-right: 3rem;
+    justify-content: flex-end;
+    gap: 4rem;
+
+}
+
+
+#product,
+#solutions,
+#learn,
+#support,
+#company{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    gap: 0.5rem;
+    border-left: #66FCF1 groove;
+    padding-left: 1.25rem;
+    border-top-left-radius: 10px;
+}
+
+li{
+    font-size: 0.9em;
+    font-weight: lighter;
+}
