@@ -7,7 +7,7 @@
 }
 
 
-body{
+.rps{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,4 +106,49 @@ button{
 }
 
 
+
+
+
+
+/* down here css for the landing page. */
+
+.main-page{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    background-color: #1F2833;
+}
+
+h1{
+    align-self: center;
+    color: #66FCF1;
+}
+.navigation-menu{
+    display: flex;
+    gap: 10rem;
+    margin: 3rem;
+    color: white;
+   
+}
+
+
+#home{
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.game-body{
+    display: flex;
+    align-items: center;
+    margin: 3rem;
+}
+
+#game-list{
+    display: flex;
+    margin-left: 0;
+    margin-right: auto;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: white;
+}
 
