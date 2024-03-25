@@ -52,19 +52,42 @@ function match(player = "", computer = getComputerChoice()){
 let point = 0;
 let draw = 0;
 
-// function playGame(){
-//     for (let i = 1; i < 6; i++){
-//         let user = prompt("Enter you choice: ");
-//         let result = `Round: ${i}, ${match(user, getComputerChoice())}`;
-//         console.log(result);
-//     }
-//     if(point >= 3) console.log( `Congratulations, You win for ${point}\\5`);
-//     else if(draw == 1){
-//         if(point != 2) console.log( `You Loser, your'e down for ${point}\\5`);
-//         else console.log("Win Win!")
-//     }
 
-// };
+
+const modalAnnounce = document.querySelector('.modal-announce');
+const modalResult = document.querySelector('.modal-result');
+const queue = [""];
+
+function finalResult(){
+    if(point > 2){
+
+        // pass
+        modalAnnounce.textContent = "Congratulations. You Won!";
+        modalResult.innerHTML = `${queue}`;
+
+    }else if(point === 2){
+        if (draw === 1){
+            // pass
+            modalAnnounce.textContent = "Draw.";
+            modalResult.innerHTML = `${queue}`;
+
+
+        }else if(draw === 0){
+            // pass
+            modalAnnounce.textContent = "You Loss.";
+            modalResult.innerHTML = `${queue}`;
+
+
+        }else{
+            // pass
+            modalAnnounce.textContent = "Congratulations. You Won!";
+            modalResult.innerHTML = `${queue}`;
+        }
+    }else{
+        modalAnnounce.textContent = "You Loss.";
+        modalResult.innerHTML = `${queue}`;
+    }
+};
 
 
 
@@ -82,7 +105,14 @@ function playRound(event){
     if (event.target !== event.currentTarget){
         const clickedItem = event.target.id;
         para.textContent = `Round ${round}: ` + match(clickedItem);
+        queue.push(`Round ${round}: ` + match(clickedItem) + "<br>");
         round++;
+    }
+
+    if (round === 6){
+        finalResult();
+        console.log(point, draw);
+        setTimeout(openModal, 2000);
     }
 };
 
